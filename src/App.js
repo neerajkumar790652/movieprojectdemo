@@ -11,12 +11,18 @@ const App = () => {
 	};
 	const getMovie = (e) => {
  		e.preventDefault();
-		 fetch(
-			`http://www.omdbapi.com/?s=${text}&apikey=9af52424`)
-			.then((res) => res.json())
+// 		 fetch(
+// 			`http://www.omdbapi.com/?s=${text}&apikey=9af52424`)
+// 			.then((res) => res.json())
+// 			.then((response) => {
+// 			console.log(response);
+// 			setMovie(response.Search)
+// 			});
+		axios
+			.get(`http://www.omdbapi.com/?s=${text}&apikey=9af52424`)
 			.then((response) => {
-			console.log(response);
-			setMovie(response.Search)
+				console.log(response);
+				setMovie(response.data.Search);
 			});
 	};
 	return (
