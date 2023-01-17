@@ -10,7 +10,7 @@ const App = () => {
 		setText(e.target.value);
 	};
 	const getMovie = (e) => {
-// 		e.preventDefault();
+ 		e.preventDefault();
 		axios
 			.get(`http://www.omdbapi.com/?s=${text}&apikey=9af52424`)
 			.then((response) => {
