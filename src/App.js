@@ -22,7 +22,7 @@ const App = () => {
 		<>
 			<nav className="navbar navbar-dark bg-dark">
 				<div className="container-fluid">
-					<a className="navbar-brand">Movie Search Application</a>
+					<p className="navbar-brand">Movie Search Application</p>
 					<form className="d-flex" role="search" onSubmit={getMovie}>
 						<input
 							className="form-control me-4"
