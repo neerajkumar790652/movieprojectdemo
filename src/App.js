@@ -11,11 +11,12 @@ const App = () => {
 	};
 	const getMovie = (e) => {
  		e.preventDefault();
-		axios
-			.get(`http://www.omdbapi.com/?s=${text}&apikey=9af52424`)
+		 fetch(
+			`http://www.omdbapi.com/?s=${text}&apikey=9af52424`)
+			.then((res) => res.json())
 			.then((response) => {
-				console.log(response);
-				setMovie(response.data.Search);
+			console.log(response);
+			setMovie(response.Search)
 			});
 	};
 	return (
@@ -43,7 +44,7 @@ const App = () => {
 					{movie.map((value, index) => {
 						return (
 							<div className="col-3 my-2 py-2">
-								<div className="card" style={{ width: '300px',height:'550px',padding:'30px',margin:'10px' }}>
+								<div className="card"  key={index} style={{ width: '300px',height:'550px',padding:'30px',margin:'10px' }}>
 									<img src={value.Poster} className="card-img-top" alt="Not found" style={{width:'200px',height:'300px'}}/>
 									<div className="card-body">
 										<h3 className="card-title">{value.Year}</h3>
